@@ -1,4 +1,3 @@
-// src/hooks/usePokemonQuery.js
 import { gql, useQuery } from '@apollo/client';
 import client from '@/lib/apolloClient';
 
@@ -24,6 +23,10 @@ const GET_POKEMONS = gql`
       pokemon_v2_pokemonsprites {
         sprites(path: "$.other.home.front_default")
       }
+      height
+      pokemon_v2_pokemontypes {
+        pokemon_v2_type { name }
+      }
     }
     pokemon_v2_pokemon_aggregate(
       where: {
@@ -44,7 +47,8 @@ const GET_POKEMONS = gql`
   }
 `;
 
-export default function usePokemonQuery({ limit, offset, name, type, generation }) {
+
+export default function usePokemonAllQuery({ limit, offset, name, type, generation }) {
   const { data, loading, error } = useQuery(GET_POKEMONS, {
     variables: {
       limit,

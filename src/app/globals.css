@@ -28,6 +28,22 @@ body {
   height: 100vh;
 }
 
+.pixel-button {
+  font-size: 10px;
+  background: #2563eb; /* Tailwind's blue-600 */
+  color: white;
+  padding: 4px 8px;
+  border: 2px solid black;
+  box-shadow: 2px 2px 0 black;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.pixel-button:active {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
 .pixel-corners {
   clip-path: polygon(
     0px calc(100% - 20px),
@@ -130,6 +146,13 @@ body {
     0% 30%, 30% 30%
   );
   position: relative;
+  transition: transform 0.05s, box-shadow 0.05s;
+  cursor: pointer;
+}
+
+.dpad:active {
+  transform: translate(1px, 1px);
+  box-shadow: none;
 }
 
 .info-screen {

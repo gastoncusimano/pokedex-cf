@@ -1,20 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function MainScreen({ pokemons, loading, error }) {
+export default function MainScreen({ pokemons, loading, error, onSelectPokemon }) {
   return (
-    <div className="main-screen pixel-corners">
       <div className="grid grid-cols-2 gap-2">
       {loading && <p className="text-white m-5">Loading…</p>}
       {error && <p className="text-red-500 m-5">Error: {error.message}</p>}
         {pokemons.map((p) => {
           const sprite = p.pokemon_v2_pokemonsprites?.[0]?.sprites;
           return (
-            <Link
+            <button
               key={p.id}
-              href={`/pokemon/${p.name}`}
+              onClick={() => onSelectPokemon(p)}
               className="bg-white p-2 rounded text-center pixel-corners"
-            >
+              >
               {sprite && (
                 <Image
                   src={sprite}
@@ -25,10 +24,9 @@ export default function MainScreen({ pokemons, loading, error }) {
                 />
               )}
               <p className="capitalize">{p.name}</p>
-            </Link>
+            </button>
           );
         })}
-      </div>
     </div>
   );
 }
