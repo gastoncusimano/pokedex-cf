@@ -18,9 +18,166 @@
     --foreground: #ededed;
   }
 }
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('/imgs/background-pokemon.png');;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.pixel-corners {
+  clip-path: polygon(
+    0px calc(100% - 20px),
+    4px calc(100% - 20px),
+    4px calc(100% - 12px),
+    8px calc(100% - 12px),
+    8px calc(100% - 8px),
+    12px calc(100% - 8px),
+    12px calc(100% - 4px),
+    20px calc(100% - 4px),
+    20px 100%,
+    calc(100% - 20px) 100%,
+    calc(100% - 20px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 20px),
+    100% calc(100% - 20px),
+    100% 20px,
+    calc(100% - 4px) 20px,
+    calc(100% - 4px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 4px,
+    calc(100% - 20px) 4px,
+    calc(100% - 20px) 0px,
+    20px 0px,
+    20px 4px,
+    12px 4px,
+    12px 8px,
+    8px 8px,
+    8px 12px,
+    4px 12px,
+    4px 20px,
+    0px 20px
+  );
+}
+
+.pokedex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 250px;
+}
+
+.pokedex {
+  display: flex;
+  width: 700px;
+  background: #e63946;
+  border: 5px solid #900;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 10px;
+}
+
+.left-panel, .right-panel {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-lights {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+.top-lights div {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.top-lights div:nth-child(1) { background: red; }
+.top-lights div:nth-child(2) { background: yellow; }
+.top-lights div:nth-child(3) { background: green; }
+
+.main-screen {
+  width: 80%;
+  height: 335px;
+  background: #333;
+  border: 4px inset #ccc;
+  border-radius: 4px;
+}
+
+.dpad {
+  margin-left: 10px;
+  width: 60px;
+  height: 60px;
+  background: #8ecae6;
+  clip-path: polygon(
+    30% 0%, 70% 0%,
+    70% 30%, 100% 30%,
+    100% 70%, 70% 70%,
+    70% 100%, 30% 100%,
+    30% 70%, 0% 70%,
+    0% 30%, 30% 30%
+  );
+  position: relative;
+}
+
+.info-screen {
+  width: 80%;
+  height: 55px;
+  margin-top: 30px;
+  background: #88d498;
+  border-radius: 4px;
+  display: grid;
+  place-items: center; /* shorthand for align-items and justify-items */
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 20px);
+  gap: 10px;
+}
+.buttons button {
+  width: 20px;
+  height: 20px;
+  background: #fcbf49;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0;
+}
+.buttons button.selected {
+  background: #ff595e;
+}
+
+.bottom-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.filter-input {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 2px solid #555;
+  font-size: 14px;
+  background-color: #fff;
+  color: #222;
+  width: 150px;
+  outline: none;
+}
+
+.filter-input:focus {
+  border-color: #ff595e;
 }
