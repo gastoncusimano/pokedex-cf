@@ -17,6 +17,12 @@ export const GET_POKEMON_DETAIL = gql`
       pokemon_v2_pokemonspecy {
         name
       }
+      pokemon_v2_pokemonstats {
+        base_stat
+        pokemon_v2_stat {
+          name
+        }
+      }
       pokemon_v2_pokemonabilities {
         pokemon_v2_ability {
           name

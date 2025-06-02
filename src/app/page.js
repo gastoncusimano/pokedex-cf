@@ -92,6 +92,7 @@ export default function Home() {
           generation={generation}
           setGeneration={setGeneration}
           setPage={setPage}
+          pokemon={pokemon}
         />
       </div>
     </div>
