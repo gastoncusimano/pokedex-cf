@@ -30,7 +30,7 @@ body {
 
 .pixel-button {
   font-size: 10px;
-  background: #2563eb; /* Tailwind's blue-600 */
+  background: #2563eb; 
   color: white;
   padding: 4px 8px;
   border: 2px solid black;
